@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Listagem de Filmes</title>
+    </h:head>
+    <h:body style="background-color: #efefef;">
+        <h3>Você está logado como #{vlLogin.cli.nome}</h3>
+        <h3>Cinema escolhido #{crCinema.cinemaEscolhido}</h3>
+        <h:form id="form">
+            <p:dataGrid var="filmes" value="#{dataGridView.filmes}" columns="3" layout="grid" rows="12" paginator="true" id="filmes" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="6,12,16">
+
+                <f:facet name="header">
+                </f:facet>
+                <p:panel header="#{filmes.nome}" id="p_panelid">
+                    <h:panelGrid columns="1" style="width:100%">
+
+                        <h:outputText value="Tempo para filme:" />
+                        <h:outputText value="Duração: #{filmes.duracao}" />
+                        <h:outputText value="Elenco: #{filmes.elenco}" />
+                        <h:outputText value="Data lançamento: #{filmes.dataLancamento}" />
+                        <h:outputText value="Sinopse: #{filmes.sinopse}" />
+                        <h:outputText value="Generos: #{filmes.generos}" />
+                        <h:outputText value="Classificacao: #{filmes.classificacao}" />
+
+                        <p:commandLink update=":form:carDetail" oncomplete="PF('carDialog').show()" title="View Detail">
+                            <h:outputText styleClass="ui-icon ui-icon-search" style="margin:0 auto;" />
+                            <f:setPropertyActionListener value="#{filmes}" target="#{dataGridView.selectedFilmes}" />
+                        </p:commandLink>
+                    </h:panelGrid>
+                </p:panel>
+
+            </p:dataGrid>
+
+            <p:dialog header="Filme" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                <p:outputPanel id="carDetail" style="text-align:center;">
+                    <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedFilmes}" columnClasses="label,value">
+                        <f:facet name="header">
+                        </f:facet>
+
+                        <h:outputText value="Id:" />
+                        <h:outputText value="#{dataGridView.selectedFilmes.id}" />
+
+                        <h:outputText value="Nome" />
+                        <h:outputText id="txtNome" value="#{dataGridView.selectedFilmes.nome}" />
+
+                        <h:outputText value="duracao:" />
+                        <h:outputText value="#{dataGridView.selectedFilmes.duracao}" />
+
+                        <h:outputText value="Classificacao" />
+                        <h:outputText value="#{dataGridView.selectedFilmes.classificacao}" />
+
+                    </p:panelGrid>
+                    <br></br>
+
+                    <div class="hideBts">
+                        <h:commandButton value="Editar" action="#{crFilmes.selectFilme(e, dataGridView.selectedFilmes.nome)}"/>
+                        <h:commandButton value="Deletar" action="#{crFilmes.deleteFilme(e, dataGridView.selectedFilmes.id)}"/>
+                    </div>
+                    <br></br>
+                    <h:commandButton value="Comprar Ingresso" action="#{crudIngresso.carregarFilme(ae,dataGridView.selectedFilmes.nome)}"/>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form> 
+        <script>
+            var admin = #{vlLogin.admin}
+
+            $(".ui-icon").on("click", function () {
+                setTimeout(function () {
+                    if (admin) {
+                        $(".hideBts").show();
+                    } else {
+                        $(".hideBts").hide();
+                    }
+                }, 100);
+
+            });
+        </script>
+    </h:body>
+
+</html>
+

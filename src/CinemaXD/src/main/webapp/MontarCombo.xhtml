@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Montar Combo</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Montagem de combos</h2>
+            <h:dataTable value ="#{beanProduto.listar()}" var = "pr">
+                <h:column>
+                    <h:outputText value="ID:"/>
+                    <h:outputText value ="#{pr.idProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value=" Nome:"/>
+                    <h:outputText value ="#{pr.nomeProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value=" Preço:"/>
+                    <h:outputText value ="#{pr.precoProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value=" Tipo:"/>
+                    <h:outputText value ="#{pr.tipoProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value=" Quantidade:"/>
+                    <h:outputText value ="#{pr.qtdProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <p:commandButton action="#{beanCombo.adicionaProd(pr)}" value="Adicionar ao combo"/>
+                </h:column>
+            </h:dataTable>
+            <h:form>
+                <h:column>
+                    <h:outputText value="Valor do combo"/>
+                    <h:inputText value="#{beanCombo.combo.valorCombo}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value="Itens do combo"/>
+                    <h:inputText value="#{beanCombo.combo.definicaoCombo}"/>
+                </h:column>
+            </h:form>
+
+            <p:commandButton action="#{beanCombo.inserir(actionEvent)}" value="Finalizar o combo"/>
+        </h:form>
+
+        <hr/>
+        <h:form>
+            <h2>Remover Combos</h2>
+            <h:outputText value="Id combo"/>
+            <h:inputText value="#{beanCombo.combo.idCombo}"/>
+            <br/>
+            <p:commandButton action ="#{beanCombo.remover(actionEvent)}" value ="Remover"/>
+        </h:form>
+        <hr/>
+
+        <h:form>
+            <h2>Listagem dos combos</h2>
+            <h:dataTable value ="#{beanCombo.listar()}" var = "cb">
+                <h:column>
+                    <h:outputText value ="#{cb.idCombo}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{cb.definicaoCombo}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{cb.valorCombo}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

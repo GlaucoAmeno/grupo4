@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h2>Formulário para cadastro de produto</h2>
+            <h:outputText value="Nome do Produto"/>
+            <h:inputText value="#{beanProduto.produto.nomeProduto}"></h:inputText>
+            <br/>
+
+            <h:outputText value="Tipo do produto"/>
+            <h:inputText value="#{beanProduto.produto.tipoProduto}"></h:inputText>
+            <br/>
+
+            <h:outputText value ="Preço do produto"/>
+            <h:inputText value="#{beanProduto.produto.precoProduto}"></h:inputText>
+            <br/>
+
+            <h:outputText value="Quantidade"/>
+            <h:inputText value="#{beanProduto.produto.qtdProduto}"></h:inputText>
+            <br/>
+
+            <p:commandButton action="#{beanProduto.inserir(actionEvent)}" value="Cadastrar"/>
+            <p:commandButton action="#{beanProduto.prepararAlterarProduto(actionEvent)}" value="Alterar"/>
+            <p:commandButton action="index" value="Cancelar"/>
+
+            <hr/>
+
+            <h2>Remover Produtos</h2>
+            <h:outputText value="Id produto"/>
+            <h:inputText value="#{beanProduto.produto.idProduto}"/>
+            <br/>
+            <p:commandButton action ="#{beanProduto.remover(actionEvent)}" value ="Remover"/>
+
+            <hr/>
+
+            <h2>Listar Produtos</h2>
+            <h:outputText value="ID - Nome - Preço - Tipo - Quantidade"/>
+            <h:dataTable value ="#{beanProduto.listar()}" var = "pr">
+                <h:column>
+                    <h:outputText value ="#{pr.idProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{pr.nomeProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{pr.precoProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{pr.tipoProduto}"/>
+                </h:column>
+
+                <h:column>
+                    <h:outputText value ="#{pr.qtdProduto}"/>
+                </h:column>
+            </h:dataTable>
+
+            <hr/>
+
+        </h:form>
+    </h:body>
+</html>
+

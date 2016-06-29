@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+    <h:head>
+        <title>Listagem de Cinema</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:tabMenu activeIndex="#{param.i}">
+                <p:menuitem value="Inicio" outcome="MenuPrincipalUsuario.xhtml" icon="ui-icon-star">
+                    <f:param name="i" value="0" />
+                </p:menuitem> 
+                <p:menuitem value="Cadastrar Usuário" outcome="CadUsuarios.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
+                <p:menuitem value="Cadastrar Filme" outcome="CadFilmes.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
+                 <p:menuitem value="Cadastrar Cinema" outcome="CadCinema.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="1" />
+                </p:menuitem>
+                 <p:menuitem value="Compra de Ingresso" outcome="CadIngressos.xhtml" icon="ui-icon-search">
+                    <f:param name="i" value="1" />
+                </p:menuitem> 
+                <p:menuitem value="Montagem de Combos" outcome="MontarCombo.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="2" />
+                </p:menuitem>
+                <p:menuitem value="Cinemas" outcome="ListagemCinema.xhtml" icon="ui-icon-document">
+                    <f:param name="i" value="3" />
+                </p:menuitem>
+                <p:menuitem value="Gerar Recomendação de Filmes" outcome="TeladeRecomendacao.xhtml" icon="ui-icon-search">
+                    <f:param name="i" value="4" />
+                </p:menuitem>
+            </p:tabMenu>
+        </h:form>
+        <div class="inicio">
+            <img class="inicio" src="imagens/cinexd .jpg"></img>
+            
+        </div>
+
+    </h:body>
+
+</html>
+

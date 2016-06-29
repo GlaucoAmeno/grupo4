@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+    <h:head>
+        <title>Usuários</title>
+    </h:head>
+    <h:body class="background-cad">
+        <h1><div class="txt-Cadastro">Cadastro de Usuários</div></h1>
+        <h:form>
+            <div class="cad-center">
+                <h:panelGrid columns="3">
+                    <h:outputLabel class="txt-input" value="Nome:"/>
+                    <h:inputText id="nome" class="c-input" size="20" value="#{crCliente.cli.nome}"/>
+                    <h:message for="nome" />
+
+                    <h:outputLabel class="txt-input" value="Senha:"/>
+                    <h:inputSecret id="senha" class="c-input" size="20"  value="#{crCliente.cli.senha}" />
+                    <h:message for="sen" />
+
+                    <h:outputLabel class="txt-input" value="Email: "/>
+                    <h:inputText id="email" class="c-input" size="20" value="#{crCliente.cli.email}" />
+                    <h:message for="ema" />
+
+                    <h:commandButton id="btnE" class="bt-padrao" value="Cadastrar" action="#{crCliente.inserCliente(e)}" />
+                    <h:commandButton id="btnL" class="bt-padrao" value="Limpar"/>
+                </h:panelGrid>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

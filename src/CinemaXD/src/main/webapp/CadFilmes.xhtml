@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <link href="index.css" rel="stylesheet" type="text/css"/>
+    <h:head>
+        <title>Filmes</title>
+    </h:head>
+    <h:body class="background-cad">
+        <h1><div class="txt-Cadastro">Filme</div></h1>
+        <h:form >
+            <div class="cad-center">
+                <h:panelGrid columns="3">
+                    
+                    <h:outputLabel class="txt-input input-id" value="Id:"/>
+                    <h:inputText id="id" class="c-input input-id" value="#{crFilmes.fm.id}" size="20" />
+                    <h:message for="id" /> 
+
+                    <h:outputLabel class="txt-input" value="Nome:"/>
+                    <h:inputText id="nome" class="c-input" value="#{crFilmes.fm.nome}" size="20" />
+                    <h:message for="nome" />
+
+                    <h:outputLabel class="txt-input" value="Diretor:"/>
+                    <h:inputText id="diretor" class="c-input" value="#{crFilmes.fm.diretor}" size="20"  />
+                    <h:message for="diretor" />
+
+                    <h:outputLabel class="txt-input" value="Elenco:"/>
+                    <h:inputText id="nro" class="c-input" value="#{crFilmes.fm.elenco}" size="20" />
+                    <h:message for="elenco" />
+
+                    <h:outputLabel class="txt-input" value="Classificação:"/>
+                    <h:inputText id="mun" class="c-input" value="#{crFilmes.fm.classificacao}" size="20" />
+                    <h:message for="classif" />
+
+                    <h:outputLabel class="txt-input" value="Duraçao:"/>
+                    <h:inputText id="duracao" class="c-input" value="#{crFilmes.fm.duracao}" size="20" />
+                    <h:message for="dur" />
+
+                    <h:outputLabel class="txt-input" value="Data de Lançamento"/>
+                    <h:inputText id="dtLacamento" class="c-input" value="#{crFilmes.fm.dataLancamento}" size="20" />
+                    <h:message for="dtLanc" />
+
+                    <h:outputLabel class="txt-input" value="Gênero"/>
+                    <h:inputText id="genero" class="c-input" size="20" value="#{crFilmes.fm.generos}" />
+                    <h:message for="gen" />
+
+                    <h:outputLabel class="txt-input" value="Sinopse"/>
+                    <p:inputTextarea rows="6" cols="33" value="#{crFilmes.fm.sinopse}" />
+                    <h:message for="sinopse" />
+
+                </h:panelGrid>
+
+                <!-- Faltar colocar check box de perfil-->
+                <br></br>
+                <div>
+                    <h3 style="text-align: center;">Informe um valor de 0 a 5 que represente os aspectos do filme</h3>
+                </div>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="acao" value="Ação:" />
+                    <p:selectOneRadio id="acao"  value="#{crFilmes.acao}" >
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="terror" value="Terror" />
+                    <p:selectOneRadio id="terror" value="#{crFilmes.terror}" >
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="suspense" value="Suspenso" />
+                    <p:selectOneRadio id="suspense" value="#{crFilmes.suspense}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="animacao" value="Animação" />
+                    <p:selectOneRadio id="animacao"  value="#{crFilmes.animacao}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="documentario" value="Documentário" />
+                    <p:selectOneRadio id="documentario" value="#{crFilmes.documentario}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="comedia" value="Comédia" />
+                    <p:selectOneRadio id="comedia" value="#{crFilmes.comedia}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="romance" value="Romance" />
+                    <p:selectOneRadio id="romance" value="#{crFilmes.romance}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+
+                </h:panelGrid>
+                
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:outputLabel for="drama" value="Drama" />
+                    <p:selectOneRadio id="drama" value="#{crFilmes.drama}">
+                        <f:selectItem itemLabel="0" itemValue="0" />
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+
+                </h:panelGrid>
+                <!-- salvar cadastrar ou limpar !-->
+                <div class="bts">
+                    <h:commandButton class="bt-padrao btnE" value="Cadastrar" action="#{crFilmes.inserir(e)}" />
+                    <h:commandButton class="bt-padrao btnL" value="Limpar"/>
+                    <!-- salvar alteração !-->
+                    <h:commandButton  class="bt-padrao btnSalvar" value="Salvar" action="#{crFilmes.updateFilme(e)}" />
+                </div>
+
+
+
+            </div>
+
+        </h:form>
+        <script>
+
+            $(".input-id").hide();
+            var showButton = #{crFilmes.showButton};
+            if (showButton == 0) {
+                $(".btnSalvar").hide();
+                $(".btnE, .btnL").show();
+            } else {
+                $(".btnE, .btnL").hide();
+                $(".btnSalvar").show();
+            }
+        </script>
+    </h:body>
+</html>
+
